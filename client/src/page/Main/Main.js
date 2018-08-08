@@ -6,18 +6,8 @@ class Main extends Component {
     constructor (props){
     super(props)
     this.state = {
-         initialBig: 1/3,
-         row1Size: 1,
-         row2Size: 2,
-         col1Pos: 1,
-         col2Pos: 2,
-         col3Pos: 3, 
-         col4Pos: 4,
-         col5Pos: 5,
-         col6Pos: 6, 
-         largePos: 1/3
-
-        // hovered: false,
+         hovered: false
+      
         
         
       
@@ -26,28 +16,45 @@ class Main extends Component {
     this.onMouseLeave= this.onMouseLeave.bind(this);
     }
         onMouseEnter(event) {
-            console.log("mouse enter");
-            console.log(event.target.id);
-            let n = event.target.id;
+            // console.log("mouse enter");
+            // console.log(event.target.id);
+            let boxNum = (event.target.id)
+            let n = parseInt(boxNum);
 
             if (n > 5){
-                this.setState({row2Size: 1/3,largePos: (n-4)/(n-2) })
-               
+                document.getElementById(boxNum).style.gridRow = "1/3" 
+                document.getElementById(boxNum).style.gridColumn =(n -4) + "/" + (n-2) 
+            }else {
+                document.getElementById(boxNum).style.gridRow = "1/3" 
+                document.getElementById(boxNum).style.gridColumn =(n) + "/" + (n+2)
             }
             
             // this.setState({rowSize: 1/3})
         }
 
-        onMouseLeave() {
+        onMouseLeave(event) {
+            let cName = event.target.className.split(' ')[1];
+            let boxNum =event.target.id;
             console.log("mouse leave");
-            this.setState({rowSize: 1})
+            console.log(cName);
+           
+           
+            if (boxNum <= 5){
+                document.getElementById(boxNum).style.gridRow ="1"
+                document.getElementById(boxNum).style.gridColumn =boxNum
+            } else {
+                document.getElementById(boxNum).style.gridRow ="2"
+                document.getElementById(boxNum).style.gridColumn =boxNum
+            }
+            
+            
         }
 
 
     render() {
         return (
             <div className = "wrapper">
-                <div onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}className =" box box1"  id = "1" >    
+                <div onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}className ="box box1"  id = "1" >    
                 {/* style = {{"gridRow":this.state.rowSize}} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}  */}
                     <h1> box1 </h1>
                 </div>     
@@ -69,7 +76,8 @@ class Main extends Component {
                 <div onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className ="box box7" id = "7" >    
                     <h1> box7 </h1>
                 </div>     
-                <div style = {{"gridRow":this.state.row2Size, "gridCol":this.state.largePos}} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className ="box box8" id = "8" >    
+                <div  onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className ="box box8" id = "8" >    
+                {/* style = {{"gridRow":this.state.row2Size, "gridCol":this.state.largePos}} */}
                     <h1> box8 </h1>
                 </div>   
                 <div onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className ="box box9" id = "9" >    
