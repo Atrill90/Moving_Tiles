@@ -35,15 +35,18 @@ class Main extends Component {
         // console.log(event.target.id);
         let boxNum = (event.target.id)
         // let n = parseInt(boxNum);
-        let current = document.getElementsByClassName("active");
+        this.setState({hovered:boxNum},() =>{
+            let current = document.getElementsByClassName("active");
 
-        for (let i = 0; i <current.length; i++) {
-            current[i].classList.remove("active");
-        }
-
-        let newElement = document.getElementById(boxNum);
-
-        newElement.classList.add("active");
+            for (let i = 0; i <current.length; i++) {
+                current[i].classList.remove("active");
+            }
+    
+            let newElement = document.getElementById(this.state.hovered);
+    
+            newElement.classList.add("active");
+        })
+       
 
         // if (n <= 5){
         //     document.getElementById(boxNum).style.gridRow = "1/3" 
