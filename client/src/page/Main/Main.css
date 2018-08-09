@@ -3,15 +3,39 @@
     grid-template-columns:repeat(6,1fr);
     grid-template-rows: repeat(2,1fr);
     grid-auto-flow: column dense;
-    grid-gap: .09em;
+    grid-gap: .1em;
     justify-items: stretch;
+    
     /* align-items: stretch;  */
 }
 
-.wrapper >div{
-background: green;
-padding: 3em;
+.box{
+    background: gray;
 }
+
+.image{
+    width: 100%;
+    vertical-align: bottom;
+   
+}
+
+.Jaime, .Cersei, .Joffrey{
+    background:#e7cd8c;
+}
+
+.Arya, .Bran, .Catelyn{
+    background:#5ebeed;
+}
+.Khaleesi{
+    background: #c64535;
+}
+.Hodor{
+    background:#6ccdd2;
+}
+.Beric{
+    background: #6a3776;
+}
+
 
   /* .box1{
     grid-column: 1;

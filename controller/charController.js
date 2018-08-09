@@ -7,7 +7,7 @@ module.exports = {
         Chars
         .find({})
         .sort({ id: 1 })
-        .then(chars => console.log(chars))
+        .then(chars => res.json(chars))
         .catch(err => res.status(422).json(err));
     }
 }
