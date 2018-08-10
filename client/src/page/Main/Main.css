@@ -5,6 +5,7 @@
     grid-auto-flow: column dense;
     grid-gap: .1em;
     justify-items: stretch;
+    margin-bottom: .1em;
 }
 
 .box{
