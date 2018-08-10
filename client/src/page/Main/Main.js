@@ -23,7 +23,6 @@ class Main extends Component {
     componentDidMount() {
         API.findChars()
         .then(res => {
-            console.log(res);
             let char1Arr = [];
             let char2Arr = [];
             for (let i = 0; i < res.data.length; i++) {
@@ -35,7 +34,6 @@ class Main extends Component {
                 }
               
             }
-            console.log(char1Arr);
             this.setState({
                 chars:char1Arr,
                 chars2:char2Arr
@@ -109,8 +107,6 @@ class Main extends Component {
                     onMouseEnter = {this.onMouseEnter2}
                     key = {char.id}/>
                 })}
-                
-
             </Grid>
         </div>
         );
