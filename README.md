@@ -7,6 +7,10 @@ This is a full-stack MERN application.
 
 View the site here: [Game of Tiles](https://game-of-tiles.herokuapp.com/) 
 
+## Site Preview 
+
+![Gif](./preview.gif )
+
 ## Technologies Used
 * Mongo DB with Mongoose (local db)
 * Mlab (hosted db)
