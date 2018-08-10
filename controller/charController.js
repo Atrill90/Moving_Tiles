@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Chars = mongoose.model('Chars');
 
-
 module.exports = {
     read: function(req, res) {
         Chars
@@ -12,5 +11,3 @@ module.exports = {
     }
 }
 
-// console.log(chars)
-// res.json(chars))

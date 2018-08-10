@@ -5,24 +5,19 @@
     grid-auto-flow: column dense;
     grid-gap: .1em;
     justify-items: stretch;
-    
-    /* align-items: stretch;  */
 }
 
 .box{
     background: lightgray;
 }
-
 .image{
     width: 100%;
     vertical-align: bottom;
    
 }
-
 .Jaime, .Cersei, .Joffrey{
     background:#e7cd8c;
 }
-
 .Arya, .Bran, .Catelyn, .Ned, .Rob, .Sansa{
     background:#5ebeed;
 }

@@ -17,7 +17,7 @@ class Main extends Component {
     };
     this.onMouseEnter= this.onMouseEnter.bind(this);
     this.onMouseEnter2= this.onMouseEnter2.bind(this);
-    // this.onMouseLeave= this.onMouseLeave.bind(this);
+    
     }
 
     componentDidMount() {
@@ -53,22 +53,10 @@ class Main extends Component {
     
     onMouseEnter(event) {
         let charName = (event.target.id)
-        let oldChar = this.state.hovered;
+        
+        this.classRemover(this.state.hovered,"active")
 
-        let lastChar =document.getElementsByClassName(oldChar)
-        // console.log(lastChar);
-        for (let i = 0; i <lastChar.length; i++) {
-            lastChar[i].classList.remove(oldChar);
-        }
-       
-        // let n = parseInt(charName);
         this.setState({hovered:charName},() =>{
-            let current = document.getElementsByClassName("active");
-
-            for (let i = 0; i <current.length; i++) {
-                current[i].classList.remove("active","animated","fadeInRight");
-            }
-    
             let newElement = document.getElementById(this.state.hovered);
     
             newElement.classList.add("active",charName,"animated","fadeInRight");
@@ -77,28 +65,27 @@ class Main extends Component {
 
     onMouseEnter2(event) {
         let charName = (event.target.id)
-        let oldChar = this.state.hovered2;
+        
 
-        let lastChar =document.getElementsByClassName(oldChar)
-       
-        for (let i = 0; i <lastChar.length; i++) {
-            lastChar[i].classList.remove(oldChar);
-        }
-       
+        this.classRemover(this.state.hovered2,"active2")
         
         this.setState({hovered2:charName},() =>{
-            let current = document.getElementsByClassName("active2");
-
-            for (let i = 0; i <current.length; i++) {
-                current[i].classList.remove("active2","animated","fadeInRight");
-            }
-    
             let newElement = document.getElementById(this.state.hovered2);
     
             newElement.classList.add("active2",charName,"animated","fadeInRight");
         })
     }
 
+
+    classRemover (hovered,active) {
+        //current large char
+        let currentActive = document.getElementsByClassName(active);
+    
+        //removes color, larger size, and animation
+        for (let i = 0; i <currentActive.length; i++) {
+            currentActive[i].classList.remove(active, "animated","fadeInRight",hovered);
+        }
+    }
     
 
 
